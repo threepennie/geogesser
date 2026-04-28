@@ -3,52 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GeoGesser Clone</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-    <link rel="stylesheet" href="./styles.css" />
+    <title>GeoGuessr Evolution Prototype</title>
   </head>
   <body>
-    <header>
-      <h1>GeoGesser Clone</h1>
-      <p>ゲストで遊べる / Google・Facebook・Xで成績保存</p>
-    </header>
-
-    <main>
-      <section class="auth-panel">
-        <div id="authStatus">未ログイン</div>
-        <div class="auth-buttons">
-          <button id="guestBtn">ゲストモード</button>
-          <button id="googleBtn">Googleでログイン</button>
-          <button id="facebookBtn">Facebookでログイン</button>
-          <button id="twitterBtn">Xでログイン</button>
-          <button id="logoutBtn" class="ghost">ログアウト</button>
-        </div>
-      </section>
-
-      <section class="game-layout">
-        <div>
-          <div id="streetView"></div>
-          <div class="controls">
-            <button id="newRoundBtn">新しいラウンド</button>
-            <button id="submitBtn">この地点で回答</button>
-          </div>
-          <div id="result"></div>
-        </div>
-
-        <aside>
-          <h2>推測マップ</h2>
-          <div id="guessMap"></div>
-          <div class="stats">
-            <p>現在ラウンド: <span id="roundNum">0</span></p>
-            <p>現在スコア: <span id="totalScore">0</span></p>
-            <p>自己ベスト: <span id="bestScore">-</span></p>
-          </div>
-        </aside>
-      </section>
-    </main>
-
-    <script type="module" src="./app.js"></script>
-    <!-- API key を入れたら有効化 -->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initStreetView"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
