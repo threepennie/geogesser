@@ -1,8 +1,7 @@
 # GeoGuessr Evolution Prototype
 
 ## 概要
-GeoGuessrを発展させたWebアプリを作るための初期構成です。まずはReact + TypeScript + Viteで、拡張しやすい最小UIを用意しています。
-現時点では「ゲームを始める」ボタンで仮のゲーム画面へ遷移し、開発導線を確認できます。
+GeoGuessrを発展させたWebアプリのプロトタイプです。React + TypeScript + Viteで、ゲーム体験の中核（ラウンド遷移、推測地点選択、距離スコア計算）を段階的に実装しています。
 
 ## セットアップ方法
 ```bash
@@ -19,14 +18,17 @@ npm run dev
 npm run build
 ```
 
-## 今後の開発予定
-- 画面ルーティング（ホーム / ゲーム / 結果）
-- 地図表示と地点選択UI
-- ラウンド管理とスコア計算
-- 認証連携（ゲスト / SNSログイン）
-- バックエンド連携による成績保存
+## 現在の実装
+- React Routerによる3画面遷移（`/` Home, `/game` Game, `/result` Result）
+- ゲーム状態管理（Round / Score / Timer / CurrentQuestion）
+- 固定JSONの問題モデル（`id, lat, lng, panoId, country, difficulty`）
+- 地図UIの最小実装（クリックで推測地点を配置）
+- Haversine距離 + スコア計算ユーティリティ
+- ゲスト認証方針の先行実装（匿名ログイン想定フラグ）
+- 成績保持（セッション内のラウンド履歴）
 
-## 現在の実装範囲
-- `/` ホーム画面
-- `/game` 仮ゲーム画面（ダミー問題でラウンド開始→回答）
-- `/result` 結果画面（距離・獲得スコア・合計スコア表示）
+## 今後の開発予定
+- 実地図ライブラリ（Leaflet / Google Maps）への置き換え
+- Firebase Auth（匿名 / Google / Facebook / X）連携
+- Firestore永続化（`users/{uid}/games` など）
+- lint/testの導入と品質ゲート強化
